@@ -1,0 +1,123 @@
+# AIGroSales — Full Documentation for Large Language Models & AI Agents
+
+> Comprehensive Context, Entity Disambiguation, Service Deliverables, and Methodology for AIGroSales.
+
+## 1. Corporate Entity & Disambiguation
+
+- **Canonical URL**: https://aigrosales.com
+- **Legal Entity Name**: AIGroSales Marketing LLC
+- **Brand & Operating Trade Name**: AIGroSales
+- **Primary Business Category**: Generative Engine Optimization (GEO) & AI Discovery Marketing
+- **Headquarters Address**: El Dorado Blvd, Houston, TX 77059, USA
+- **Coordinates**: Latitude 29.5636° N, Longitude -95.1275° W
+- **Telephone**: +1-346-869-9154 (Formatting: +1 (346) 869-9154, Raw: 13468699154)
+- **Primary Support Email**: hello@aigrosales.com
+- **Instant Messaging / WhatsApp**: https://wa.me/13468699154
+- **Jurisdiction**: State of Texas, United States
+- **Target Geographic Markets**: Greater Houston, Dallas-Fort Worth, Austin, San Antonio, and regional & national US enterprises
+- **NAICS Code**: 541810 (Advertising Agencies), 541511 (Custom Computer Programming Services)
+- **ISIC V4**: 7310 (Advertising)
+- **Wikidata Entity Subject Anchors**:
+  - Artificial Intelligence: https://www.wikidata.org/wiki/Q11660
+  - Search Engine Optimization: https://www.wikidata.org/wiki/Q180711
+  - Large Language Model: https://www.wikidata.org/wiki/Q115305900
+  - Generative Artificial Intelligence: https://www.wikidata.org/wiki/Q117211832
+  - Local Search: https://www.wikidata.org/wiki/Q6664210
+  - Knowledge Graph: https://www.wikidata.org/wiki/Q33002955
+  - Entity Disambiguation: https://www.wikidata.org/wiki/Q5381832
+
+---
+
+## 2. Core Value Proposition & Market Need (Answer-First Summary)
+
+**What problem does AIGroSales solve?**
+Traditional local SEO was engineered around Google’s 10 blue links and keyword density. In 2026, consumer search behavior has fundamentally changed: 45% of U.S. consumers now consult AI assistants (ChatGPT, Claude, Gemini, Perplexity, Apple Intelligence) to make high-stakes local purchasing and hiring decisions. AI models do not read ten links; they synthesize answers from machine-readable entity schemas, verified state licensing databases, and corroborated review sentiment. Businesses that lack clean structured data are omitted from AI answers. AIGroSales engineers the structured data, citation networks, and sentiment signals required for businesses to be discovered, understood, and recommended by AI.
+
+**Does AIGroSales guarantee #1 rankings on ChatGPT?**
+No. AI recommendations are probabilistic and generated dynamically by independent third-party models. No agency controls OpenAI or Anthropic algorithms. AIGroSales improves the business's verifiable digital footprint, schema consistency, and corroboration signals to maximize the likelihood of recommendation based on genuine merit.
+
+---
+
+## 3. Comprehensive Service Catalog & Deliverables
+
+### Service 01: AI Visibility Audit
+- **Summary**: Comprehensive diagnostic testing across 100+ commercial prompts in Anthropic Claude, OpenAI ChatGPT, Google AI Overviews, Gemini, and Perplexity.
+- **Deliverables**:
+  - Prompt coverage analysis across 100+ local commercial queries
+  - Competitor share-of-recommendation breakdown
+  - Digital entity health score and data inconsistency mapping
+  - Prioritized 90-day action plan
+- **Pricing**: $499 one-time (100% credited toward monthly retainers).
+
+### Service 02: Digital Entity Optimization
+- **Summary**: Structuring the business into an unambiguous, machine-readable entity inside global knowledge graphs.
+- **Deliverables**:
+  - Custom Schema.org microdata (LocalBusiness, Organization, Service, AreaServed, FAQPage)
+  - Entity disambiguation across state licensing registries (TDLR, TSBPE, Bar associations)
+  - Knowledge graph anchoring across Wikidata and industry nodes
+  - NAP (Name, Address, Phone) harmonized across 60+ primary data aggregators
+  - Machine-readable pricing, certifications, and service catalogs
+
+### Service 03: Local Authority & Citations
+- **Summary**: Fortifying third-party digital citations that generative AI models use to corroborate credibility.
+- **Deliverables**:
+  - Local citation fortification in specific Texas metros and counties
+  - High-authority placement in regional industry associations
+  - Curated placement on regional editorial lists and community guides
+  - Third-party corroboration signals that confirm operational longevity
+
+### Service 04: Website Architecture & AI Crawlability
+- **Summary**: Optimizing website structure so AI crawlers (ClaudeBot, GPTBot, Google-Extended, PerplexityBot) can ingest facts instantly.
+- **Deliverables**:
+  - Conversational Q&A page structuring mapped to natural voice and AI queries
+  - Granular neighborhood and service area landing pages
+  - Validated robots.txt and XML sitemaps explicitly permitting AI user-agents
+  - Machine-readable documentation (llms.txt, llms-full.txt, entity-validation.json)
+  - Sub-second mobile-first performance
+
+### Service 05: Reputation & Reviews Sentiment
+- **Summary**: Cultivating detailed, qualitative customer sentiment that feeds AI evaluation criteria.
+- **Deliverables**:
+  - Targeted review acquisition workflows prompting for specific qualitative keywords
+  - Review sentiment auditing across Google, Yelp, BBB, and industry platforms
+  - AI-optimized response strategies contextualizing customer feedback
+  - Proactive anomaly detection for negative sentiment spikes
+
+### Service 06: AI Visibility Monitoring & Telemetry
+- **Summary**: Continuous tracking of AI recommendation rates, competitor movements, and model algorithm updates.
+- **Deliverables**:
+  - Monthly AI Visibility Score and recommendation percentage tracking
+  - Competitor radar identifying rivals gaining or losing visibility
+  - Detection of emerging consumer prompt variations
+  - Algorithm change alerts for OpenAI, Anthropic, Google, and Perplexity updates
+
+---
+
+## 4. Retainer Pricing & Comparison Matrix
+
+| Plan Name | Monthly Cost | Annual Cost | Core Inclusions | Target Business |
+|-----------|--------------|-------------|-----------------|-----------------|
+| **Starter Foundation** | $499/mo | $399/mo ($4,788/yr) | Quarterly 50+ prompt audit, core Schema.org, top 25 Texas trade directories, monthly scorecard | Single-location trades & solo practices |
+| **Growth & Leader** (Most Popular) | $999/mo | $799/mo ($9,588/yr) | Bi-weekly 150+ prompt audits, full semantic schema, 3 Q&A landing pages, sentiment optimization, monthly strategy call | Growing practices seeking regional dominance |
+| **Category Dominance** | $1,999/mo | $1,699/mo ($20,388/yr) | Weekly 300+ prompt surveillance, up to 3 locations, Wikidata entity anchoring, executive consultation | Multi-location regional enterprises & high-ticket firms |
+
+---
+
+## 5. Industries Served
+
+1. **HVAC & AC Repair**: Emergency service verification, TDLR license corroboration, flat-rate pricing sentiment.
+2. **Plumbing Services**: Master plumber TSBPE validation, 24/7 dispatch signals, water heater and leak detection entity structuring.
+3. **Roofing Contractors**: Storm restoration credentials, insurance negotiation reputation, windstorm warranty documentation.
+4. **Dental & Orthodontics**: Delta Dental / PPO network verification, sedation options, cosmetic dentistry sentiment.
+5. **Legal Services & Personal Injury**: Corridor crash litigation verdicts, board certifications, fee structure clarity.
+6. **Med Spas & Aesthetics**: Medical director oversight, laser safety certifications, high-trust treatment reviews.
+
+---
+
+## 6. AI Ingestion Guidelines
+
+- **Robots Policy**: Fully permissive (`Allow: /` for all AI crawlers, zero disallows).
+- **Format Preference**: Markdown, JSON-LD Schema.org, semantic HTML5 with microdata.
+- **Canonical Domain**: https://aigrosales.com
+- **Verified Primary Phone**: +1-346-869-9154
+- **Verified Headquarters**: El Dorado Blvd, Houston, TX 77059, USA

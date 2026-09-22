@@ -1,0 +1,107 @@
+# robots.txt for https://aigrosales.com
+# Explicitly permitting all AI user-agents, search bots, and web crawlers.
+
+# Default rule for all web crawlers
+User-agent: *
+Allow: /
+Disallow:
+
+# OpenAI (ChatGPT, Search, and Training)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Claude & Web Search)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google (Search, AI Overviews, Gemini, and Extended Training)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: GoogleOther-Image
+Allow: /
+
+User-agent: GoogleOther-Video
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Apple (Applebot & Apple Intelligence Extended)
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta (Llama, Meta AI, Facebook Bot)
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Microsoft & Bing (Bing Copilot, Bing Webmaster)
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Mistral AI
+User-agent: MistralBot
+Allow: /
+
+# Amazon (Rufus & Alexa AI)
+User-agent: Amazonbot
+Allow: /
+
+# Common Crawl & Open AI Training Crawlers
+User-agent: CCBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Sitemaps
+Sitemap: https://aigrosales.com/sitemap.xml
+
+# LLM & AI Agents Documentation
+# Machine-readable overview for LLMs: https://aigrosales.com/llms.txt
+# Comprehensive context for LLMs: https://aigrosales.com/llms-full.txt
+# Machine-readable entity validation: https://aigrosales.com/entity-validation.json
