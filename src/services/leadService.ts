@@ -132,7 +132,7 @@ export async function submitAuditLead(lead: AuditLeadData): Promise<SubmissionRe
   }
 
   // 3. Fallback to Hostinger PHP handler
-  const phpSuccess = await sendViaPhpEndpoint('./api/contact.php', {
+  const phpSuccess = await sendViaPhpEndpoint('/api/contact.php', {
     type: 'audit_request',
     ...lead,
   });
@@ -171,7 +171,7 @@ export async function submitContactInquiry(inquiry: ContactInquiryData): Promise
   }
 
   // 3. Fallback to Hostinger PHP handler
-  const phpSuccess = await sendViaPhpEndpoint('./api/contact.php', {
+  const phpSuccess = await sendViaPhpEndpoint('/api/contact.php', {
     type: 'direct_inquiry',
     ...inquiry,
   });
