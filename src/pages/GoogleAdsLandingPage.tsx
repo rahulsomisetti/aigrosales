@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { 
   Sparkles, 
   ShieldCheck, 
@@ -24,6 +25,7 @@ import { SITE_CONFIG } from '../config';
 import { submitAuditLead, AuditLeadData } from '../services/leadService';
 import { PAID_AUDIT_OFFER } from '../data/pricingData';
 import { AiVisibilityCalculator } from '../components/AiVisibilityCalculator';
+import { useModal } from '@/context/ModalContext';
 
 interface GoogleAdsLandingPageProps {
   onOpenReportModal?: (options?: { 
@@ -40,6 +42,10 @@ export const GoogleAdsLandingPage: React.FC<GoogleAdsLandingPageProps> = ({
   onOpenReportModal,
   onOpenSampleReport 
 }) => {
+  const { openReportModal, openSampleReport: openSample } = useModal();
+  const handleOpenReport = onOpenReportModal || openReportModal;
+  const handleOpenSample = onOpenSampleReport || openSample;
+
   // Capture UTM parameters from URL query string
   const [utmData] = useState(() => {
     try {

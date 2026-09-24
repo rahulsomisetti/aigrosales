@@ -1,10 +1,19 @@
+'use client';
+
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { X, ArrowRight, Shield } from 'lucide-react';
 
 export const WhatsAppWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   const phoneNumber = '13468699154'; // +1 346 869 9154
   const formattedPhone = '+1 (346) 869-9154';
+
+  // Hide on dedicated PPC funnels to avoid multiple floating overlays
+  if (pathname && ['/lp', '/google-ads', '/get-seen'].includes(pathname)) {
+    return null;
+  }
 
   const defaultMessage = encodeURIComponent(
     "Hi AIGroSales team! I'm interested in an AI Visibility Audit and learning how AI assistants recommend businesses in my area."

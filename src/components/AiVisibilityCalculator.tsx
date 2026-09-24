@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
@@ -13,12 +15,13 @@ import {
   Check
 } from 'lucide-react';
 import { PAID_AUDIT_OFFER } from '../data/pricingData';
+import { useModal } from '@/context/ModalContext';
 
 interface AiVisibilityCalculatorProps {
   defaultIndustry?: string;
   defaultCity?: string;
   compact?: boolean;
-  onOpenReportModal: (options?: { 
+  onOpenReportModal?: (options?: { 
     industry?: string; 
     tier?: string; 
     businessName?: string; 
@@ -39,6 +42,9 @@ export const AiVisibilityCalculator: React.FC<AiVisibilityCalculatorProps> = ({
   compact = false,
   onOpenReportModal
 }) => {
+  const { openReportModal } = useModal();
+  const handleOpenModal = onOpenReportModal || openReportModal;
+
   // Input form state
   const [businessName, setBusinessName] = useState('');
   const [website, setWebsite] = useState('');
@@ -519,7 +525,7 @@ export const AiVisibilityCalculator: React.FC<AiVisibilityCalculatorProps> = ({
 
               <button
                 type="button"
-                onClick={() => onOpenReportModal({
+                onClick={() => handleOpenModal({
                   businessName,
                   website,
                   city,
@@ -558,7 +564,7 @@ export const AiVisibilityCalculator: React.FC<AiVisibilityCalculatorProps> = ({
 
               <button
                 type="button"
-                onClick={() => onOpenReportModal({
+                onClick={() => handleOpenModal({
                   businessName,
                   website,
                   city,

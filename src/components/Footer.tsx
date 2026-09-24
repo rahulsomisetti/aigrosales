@@ -1,12 +1,26 @@
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ShieldCheck, MapPin, Phone } from 'lucide-react';
+import { useModal } from '@/context/ModalContext';
 
 interface FooterProps {
-  onOpenReportModal: () => void;
+  onOpenReportModal?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenReportModal }) => {
+  const pathname = usePathname();
+  const { openReportModal } = useModal();
+
+  const handleOpenReport = onOpenReportModal || (() => openReportModal());
+
+  // Hide on dedicated PPC funnels which have their own streamlined conversion footer
+  if (pathname && ['/lp', '/google-ads', '/get-seen'].includes(pathname)) {
+    return null;
+  }
+
   return (
     <footer className="bg-seen-dark text-white pt-20 pb-12 border-t border-seen-borderDark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReportModal }) => {
           
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="inline-block group focus:outline-none">
+            <Link href="/" className="inline-block group focus:outline-none">
               <span className="text-3xl font-black tracking-tight text-white font-display flex items-center gap-1">
                 <span className="text-seen-accent">AI</span>GroSales
                 <span className="w-2 h-2 rounded-full bg-seen-accent inline-block"></span>
@@ -52,7 +66,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReportModal }) => {
 
             <div className="pt-3">
               <button
-                onClick={onOpenReportModal}
+                type="button"
+                onClick={handleOpenReport}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-seen-accent hover:bg-seen-accentDark text-white text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Get Your AI Visibility Report
@@ -67,27 +82,27 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReportModal }) => {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
                   About AIGroSales
                 </Link>
               </li>
               <li>
-                <Link to="/how-it-works" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/how-it-works" className="text-gray-400 hover:text-white transition-colors">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link to="/who-we-help" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/who-we-help" className="text-gray-400 hover:text-white transition-colors">
                   Who We Help
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors">
                   Pricing & Tiers
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
                   Contact
                 </Link>
               </li>
@@ -101,32 +116,32 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReportModal }) => {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/services#audit" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/services#audit" className="text-gray-400 hover:text-white transition-colors">
                   AI Visibility Audit
                 </Link>
               </li>
               <li>
-                <Link to="/services#entity" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/services#entity" className="text-gray-400 hover:text-white transition-colors">
                   Digital Entity Optimization
                 </Link>
               </li>
               <li>
-                <Link to="/services#authority" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/services#authority" className="text-gray-400 hover:text-white transition-colors">
                   Local Authority & Signals
                 </Link>
               </li>
               <li>
-                <Link to="/services#website" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/services#website" className="text-gray-400 hover:text-white transition-colors">
                   Website Architecture
                 </Link>
               </li>
               <li>
-                <Link to="/services#reputation" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/services#reputation" className="text-gray-400 hover:text-white transition-colors">
                   Reputation & Reviews
                 </Link>
               </li>
               <li>
-                <Link to="/services#monitoring" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/services#monitoring" className="text-gray-400 hover:text-white transition-colors">
                   AI Monitoring
                 </Link>
               </li>
@@ -140,27 +155,27 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReportModal }) => {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/insights" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/insights" className="text-gray-400 hover:text-white transition-colors">
                   Insights & Research
                 </Link>
               </li>
               <li>
-                <Link to="/ai-visibility-report" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/ai-visibility-report" className="text-gray-400 hover:text-white transition-colors">
                   AI Discovery Report
                 </Link>
               </li>
               <li>
-                <Link to="/#faq" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/#faq" className="text-gray-400 hover:text-white transition-colors">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>

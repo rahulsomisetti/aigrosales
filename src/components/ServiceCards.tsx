@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 interface ServiceCardItem {
@@ -158,7 +158,7 @@ export const ServiceCards: React.FC = () => {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-seen-border/60 flex items-center justify-between text-xs font-semibold text-seen-dark group-hover:text-seen-accent transition-colors">
-                  <Link to={`/services#${srv.id}`} className="inline-flex items-center gap-1.5 focus:outline-none">
+                  <Link href={`/services#${srv.id}`} className="inline-flex items-center gap-1.5 focus:outline-none">
                     <span>Explore Service Details</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>

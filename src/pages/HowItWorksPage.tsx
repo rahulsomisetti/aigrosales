@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -9,9 +9,10 @@ import {
   TrendingUp,
   Award
 } from 'lucide-react';
+import { OpenReportModalButton } from '@/components/ModalButtons';
 
 interface HowItWorksPageProps {
-  onOpenReportModal: () => void;
+  onOpenReportModal?: () => void;
 }
 
 export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onOpenReportModal }) => {
@@ -76,7 +77,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onOpenReportModa
             <div className="lg:col-span-5 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
               <div className="flex items-center gap-2 text-seen-accent text-xs font-bold uppercase tracking-wider mb-3">
                 <Sparkles className="w-4 h-4" />
-                BrightLocal 2026 U.S. Consumer Study
+                BrightLocal 2026 Consumer Study (Industry Projection)
               </div>
               <div className="flex items-baseline gap-3 mb-2">
                 <span className="text-4xl sm:text-5xl font-black font-display text-white">45%</span>
@@ -86,7 +87,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onOpenReportModa
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                45% of U.S. consumers now rely on conversational AI tools (with ChatGPT leading) for local recommendations — a <span className="text-white font-semibold">7.5x annual surge</span>.
+                45% of U.S. consumers now rely on conversational AI tools (with ChatGPT leading) for local recommendations — a <span className="text-white font-semibold">7.5x annual surge</span> (industry research methodology reference).
               </p>
             </div>
 
@@ -356,15 +357,14 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onOpenReportModa
           </div>
 
           <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={onOpenReportModal}
+            <OpenReportModalButton
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-seen-dark hover:bg-seen-accent text-white font-bold text-sm transition-all shadow-sm cursor-pointer"
             >
               <span>Request Free Initial AI Scan</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </OpenReportModalButton>
             <Link
-              to="/pricing"
+              href="/pricing"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-seen-offwhite text-seen-dark border border-seen-border font-bold text-sm transition-all shadow-sm"
             >
               <span>View $499 Deep Audit (100% Retainer Credit)</span>

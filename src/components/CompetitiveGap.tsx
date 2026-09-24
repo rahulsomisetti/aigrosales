@@ -1,11 +1,17 @@
+'use client';
+
 import React from 'react';
-import { ArrowRight, AlertTriangle, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { useModal } from '@/context/ModalContext';
 
 interface CompetitiveGapProps {
-  onOpenReportModal: () => void;
+  onOpenReportModal?: () => void;
 }
 
 export const CompetitiveGap: React.FC<CompetitiveGapProps> = ({ onOpenReportModal }) => {
+  const { openReportModal } = useModal();
+  const handleOpen = onOpenReportModal || (() => openReportModal());
+
   const competitors = [
     { name: 'Competitor A (Regional Leader)', visibility: 61, badge: 'Dominating 34 queries', isUser: false },
     { name: 'Competitor B (Franchise Network)', visibility: 48, badge: 'High third-party citations', isUser: false },
@@ -40,7 +46,8 @@ export const CompetitiveGap: React.FC<CompetitiveGapProps> = ({ onOpenReportModa
 
             <div className="pt-2">
               <button
-                onClick={onOpenReportModal}
+                type="button"
+                onClick={handleOpen}
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-seen-accent hover:bg-seen-accentDark text-white font-semibold text-sm transition-all shadow-sm hover:shadow-glow group cursor-pointer"
               >
                 <span>Find Your Gap</span>

@@ -1,15 +1,22 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowRight, ShieldCheck } from 'lucide-react';
+import { useModal } from '@/context/ModalContext';
 
 interface NavbarProps {
-  onOpenReportModal: () => void;
+  onOpenReportModal?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenReportModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
+  const { openReportModal } = useModal();
+
+  const handleOpenReport = onOpenReportModal || (() => openReportModal());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +29,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReportModal }) => {
   // Close mobile menu on page navigation
   useEffect(() => {
     setMobileMenuOpen(false);
-  }, [location]);
+  }, [pathname]);
+
+  // Dedicated PPC funnels have their own streamlined header/footer
+  if (pathname && ['/lp', '/google-ads', '/get-seen'].includes(pathname)) {
+    return null;
+  }
 
   const navLinks = [
     { label: 'How It Works', path: '/how-it-works' },
@@ -44,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReportModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Identity */}
-          <Link to="/" className="flex items-center gap-3 group focus:outline-none">
+          <Link href="/" className="flex items-center gap-3 group focus:outline-none">
             <div className="flex flex-col">
               <span className="text-2xl font-black tracking-tight text-seen-dark font-display flex items-center gap-1 transition-colors group-hover:text-seen-accent">
                 <span className="text-seen-accent">AI</span>GroSales
@@ -59,11 +71,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReportModal }) => {
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
+              const isActive = pathname === link.path;
               return (
                 <Link
                   key={link.label}
-                  to={link.path}
+                  href={link.path}
                   className={`text-sm font-medium transition-colors py-1 relative ${
                     isActive
                       ? 'text-seen-accent font-semibold'
@@ -82,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReportModal }) => {
           {/* Action CTA & Mobile Trigger */}
           <div className="flex items-center gap-4">
             <button
-              onClick={onOpenReportModal}
+              onClick={handleOpenReport}
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-seen-dark hover:bg-seen-accent text-white text-sm font-semibold transition-all duration-200 shadow-sm hover:shadow-glow group cursor-pointer"
             >
               <span>Get Your AI Visibility Report</span>
@@ -108,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReportModal }) => {
             {navLinks.map((link) => (
               <Link
                 key={link.label}
-                to={link.path}
+                href={link.path}
                 className="px-3 py-2.5 rounded-lg text-base font-medium text-seen-dark hover:bg-seen-warmgray transition-colors"
               >
                 {link.label}
@@ -118,9 +130,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReportModal }) => {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenReportModal();
+                  handleOpenReport();
                 }}
-                className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-seen-accent text-white font-semibold text-sm shadow-sm"
+                className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-seen-accent text-white font-semibold text-sm shadow-sm cursor-pointer"
               >
                 <span>Get Your AI Visibility Report</span>
                 <ArrowRight className="w-4 h-4" />

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { X, CheckCircle2, ArrowRight, ArrowLeft, Loader2, Sparkles, AlertCircle, Shield } from 'lucide-react';
 import { submitAuditLead } from '../services/leadService';

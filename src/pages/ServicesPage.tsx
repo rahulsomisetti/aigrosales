@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { SERVICES_DATA } from '../data/servicesData';
 import { ArrowRight, CheckCircle2, Layers } from 'lucide-react';
+import { OpenReportModalButton } from '@/components/ModalButtons';
 
 interface ServicesPageProps {
-  onOpenReportModal: (industry?: string, tier?: string) => void;
+  onOpenReportModal?: (industry?: string, tier?: string) => void;
 }
 
-export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenReportModal }) => {
+export const ServicesPage: React.FC<ServicesPageProps> = () => {
   return (
     <div className="bg-seen-offwhite">
       
@@ -82,21 +83,18 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenReportModal })
                     </div>
                   </div>
 
-                  {/* Right Col: Why It Matters & Outcome */}
-                  <div className="lg:col-span-5 bg-seen-offwhite rounded-2xl border border-seen-border p-6 sm:p-8 space-y-6">
+                  {/* Right Col: Why It Matters & Target Outcome */}
+                  <div className="lg:col-span-5 bg-seen-offwhite p-6 sm:p-8 rounded-2xl border border-seen-border space-y-6">
                     <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-2">
-                        Why It Matters
-                      </span>
-                      <p className="text-xs sm:text-sm text-gray-700 leading-relaxed bg-white p-4 rounded-xl border border-seen-border/70">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">
+                        Why It Matters in AI Search
+                      </h4>
+                      <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                         {srv.whyItMatters}
                       </p>
                     </div>
 
-                    <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-2">
-                        Expected Business Outcome
-                      </span>
+                    <div className="pt-4 border-t border-seen-border">
                       <div className="bg-seen-dark text-white p-4 rounded-xl border border-seen-borderDark text-xs sm:text-sm font-medium leading-relaxed">
                         <span className="text-emerald-400 font-bold block mb-1">Target Result:</span>
                         {srv.outcome}
@@ -104,12 +102,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenReportModal })
                     </div>
 
                     <div className="pt-2">
-                      <button
-                        onClick={() => onOpenReportModal()}
-                        className="w-full py-3 rounded-xl bg-seen-dark hover:bg-seen-accent text-white font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                      <OpenReportModalButton
+                        className="w-full py-3 rounded-xl bg-seen-dark hover:bg-seen-accent text-white font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer text-center"
                       >
                         Include in Your Audit Report
-                      </button>
+                      </OpenReportModalButton>
                     </div>
                   </div>
 
@@ -139,7 +136,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenReportModal })
             </div>
             <div>
               <Link
-                to="/pricing"
+                href="/pricing"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-gray-100 text-seen-dark font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
               >
                 <span>Full Comparison Matrix</span>
@@ -161,12 +158,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenReportModal })
                 Get an exhaustive 50–200 prompt diagnostic across ChatGPT, Claude & Google AI. When you partner with us for monthly management within 30 days, your entire $499 fee is credited 100% toward your retainers.
               </p>
             </div>
-            <button
-              onClick={() => onOpenReportModal(undefined, 'Comprehensive $499 AI Audit (Credited Toward Retainer)')}
-              className="whitespace-nowrap px-6 py-3 rounded-xl bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-glow cursor-pointer"
+            <OpenReportModalButton
+              tier="Comprehensive $499 AI Audit (Credited Toward Retainer)"
+              className="whitespace-nowrap px-6 py-3 rounded-xl bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-glow cursor-pointer text-center"
             >
               Order $499 Audit
-            </button>
+            </OpenReportModalButton>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -183,14 +180,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenReportModal })
                 <span className="text-xs text-emerald-400 font-mono">No lock-in after 90-day sprint</span>
               </div>
               <div className="pt-6 mt-6 border-t border-seen-borderDark space-y-2">
-                <button
-                  onClick={() => onOpenReportModal(undefined, 'Starter Foundation')}
-                  className="w-full py-2.5 rounded-lg bg-white hover:bg-gray-100 text-seen-dark font-bold text-xs transition-colors cursor-pointer"
+                <OpenReportModalButton
+                  tier="Starter Foundation"
+                  className="w-full py-2.5 rounded-lg bg-white hover:bg-gray-100 text-seen-dark font-bold text-xs transition-colors cursor-pointer text-center block"
                 >
                   Select Starter
-                </button>
+                </OpenReportModalButton>
                 <Link
-                  to="/pricing"
+                  href="/pricing"
                   className="w-full block text-center py-1.5 text-gray-400 hover:text-white text-[11px] font-medium"
                 >
                   View full deliverables →
@@ -213,14 +210,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenReportModal })
                 <span className="text-xs text-blue-300 font-mono">Month-to-month after 90 days</span>
               </div>
               <div className="pt-6 mt-6 border-t border-seen-borderDark space-y-2">
-                <button
-                  onClick={() => onOpenReportModal(undefined, 'Growth & Market Leader')}
-                  className="w-full py-2.5 rounded-lg bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-xs transition-colors cursor-pointer shadow-sm"
+                <OpenReportModalButton
+                  tier="Growth & Market Leader"
+                  className="w-full py-2.5 rounded-lg bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-xs transition-colors cursor-pointer shadow-sm text-center block"
                 >
                   Choose Growth Plan
-                </button>
+                </OpenReportModalButton>
                 <Link
-                  to="/pricing"
+                  href="/pricing"
                   className="w-full block text-center py-1.5 text-blue-300 hover:text-white text-[11px] font-medium"
                 >
                   View full deliverables →
@@ -240,14 +237,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenReportModal })
                 <span className="text-xs text-emerald-400 font-mono">Dedicated Senior Strategist</span>
               </div>
               <div className="pt-6 mt-6 border-t border-seen-borderDark space-y-2">
-                <button
-                  onClick={() => onOpenReportModal(undefined, 'Category Dominance')}
-                  className="w-full py-2.5 rounded-lg bg-white hover:bg-gray-100 text-seen-dark font-bold text-xs transition-colors cursor-pointer"
+                <OpenReportModalButton
+                  tier="Category Dominance"
+                  className="w-full py-2.5 rounded-lg bg-white hover:bg-gray-100 text-seen-dark font-bold text-xs transition-colors cursor-pointer text-center block"
                 >
                   Select Dominance
-                </button>
+                </OpenReportModalButton>
                 <Link
-                  to="/pricing"
+                  href="/pricing"
                   className="w-full block text-center py-1.5 text-gray-400 hover:text-white text-[11px] font-medium"
                 >
                   View full deliverables →

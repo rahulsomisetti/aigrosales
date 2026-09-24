@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { INDUSTRIES } from '../data/industries';
 import { ArrowRight, MapPin, Sparkles } from 'lucide-react';
+import { OpenReportModalButton } from '@/components/ModalButtons';
 
 interface WhoWeHelpPageProps {
-  onOpenReportModal: () => void;
+  onOpenReportModal?: () => void;
 }
 
-export const WhoWeHelpPage: React.FC<WhoWeHelpPageProps> = ({ onOpenReportModal }) => {
+export const WhoWeHelpPage: React.FC<WhoWeHelpPageProps> = () => {
   const industriesArray = Object.values(INDUSTRIES);
 
   return (
@@ -33,7 +34,7 @@ export const WhoWeHelpPage: React.FC<WhoWeHelpPageProps> = ({ onOpenReportModal 
                 <Sparkles className="w-4 h-4" />
               </span>
               <span>
-                <strong>BrightLocal 2026 U.S. Consumer Study:</strong> 45% of consumers now use AI tools for local recommendations (up from 6% in 2025).
+                <strong>BrightLocal 2026 Consumer Study (Industry Projection):</strong> 45% of consumers now use conversational AI tools for local recommendations (up from 6% in 2025).
               </span>
             </div>
           </div>
@@ -85,7 +86,7 @@ export const WhoWeHelpPage: React.FC<WhoWeHelpPageProps> = ({ onOpenReportModal 
 
                 <div className="p-6 pt-0">
                   <Link
-                    to={`/industries/${ind.slug}`}
+                    href={`/industries/${ind.slug}`}
                     className="w-full flex items-center justify-between p-3 rounded-xl bg-seen-offwhite hover:bg-seen-dark text-seen-dark hover:text-white transition-all text-xs font-bold uppercase tracking-wider group"
                   >
                     <span>View {ind.name} Strategy</span>
@@ -106,13 +107,12 @@ export const WhoWeHelpPage: React.FC<WhoWeHelpPageProps> = ({ onOpenReportModal 
                 If your business relies on local customers in a defined geographic radius, AI Discovery Marketing applies to you. We work with auto repair shops, commercial contractors, veterinarians, and more.
               </p>
             </div>
-            <button
-              onClick={onOpenReportModal}
+            <OpenReportModalButton
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-seen-accent hover:bg-seen-accentDark text-white text-xs font-bold uppercase tracking-wider transition-colors whitespace-nowrap self-start md:self-auto cursor-pointer"
             >
               <span>Get Custom Industry Audit</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </OpenReportModalButton>
           </div>
 
         </div>

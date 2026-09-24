@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { Sparkles, CheckCircle, Search, ShieldCheck, MapPin, Star, Building2, ChevronRight, RefreshCw } from 'lucide-react';
 

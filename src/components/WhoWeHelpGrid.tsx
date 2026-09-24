@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight, Wrench, Briefcase, HeartPulse, Utensils, Home, LucideIcon } from 'lucide-react';
 
 interface CategoryItem {
@@ -76,7 +76,7 @@ export const WhoWeHelpGrid: React.FC = () => {
             </h2>
           </div>
           <Link
-            to="/who-we-help"
+            href="/who-we-help"
             className="inline-flex items-center gap-2 text-sm font-semibold text-seen-dark hover:text-seen-accent transition-colors pb-1 border-b border-seen-dark hover:border-seen-accent self-start md:self-auto"
           >
             <span>Explore All Industry Playbooks</span>
@@ -137,7 +137,7 @@ export const WhoWeHelpGrid: React.FC = () => {
                     </span>
                     {cat.featuredSlug && (
                       <Link
-                        to={cat.featuredSlug}
+                        href={cat.featuredSlug}
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-seen-dark hover:text-seen-accent transition-colors group-hover:translate-x-0.5"
                       >
                         <span>{cat.featuredLabel}</span>

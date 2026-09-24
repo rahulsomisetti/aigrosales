@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { 
   CheckCircle2, 
   Sparkles, 
@@ -11,23 +13,26 @@ import {
   Building2, 
   TrendingUp, 
   Check, 
-  Minus,
-  Layers,
-  PhoneCall,
-  Award
+  Minus, 
+  Layers, 
+  PhoneCall, 
+  Award 
 } from 'lucide-react';
 import { 
   PRICING_TIERS, 
   FEATURE_COMPARISON_MATRIX, 
-  PRICING_FAQS,
-  PAID_AUDIT_OFFER
+  PRICING_FAQS, 
+  PAID_AUDIT_OFFER 
 } from '../data/pricingData';
+import { useModal } from '@/context/ModalContext';
 
 interface PricingPageProps {
-  onOpenReportModal: (industry?: string, tier?: string) => void;
+  onOpenReportModal?: (industry?: string, tier?: string) => void;
 }
 
 export const PricingPage: React.FC<PricingPageProps> = ({ onOpenReportModal }) => {
+  const { openReportModal } = useModal();
+  const handleOpenReport = onOpenReportModal || openReportModal;
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const [expandedTierServices, setExpandedTierServices] = useState<Record<string, boolean>>({
     growth: true
@@ -176,7 +181,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onOpenReportModal }) =
 
                 <button
                   type="button"
-                  onClick={() => onOpenReportModal(undefined, PAID_AUDIT_OFFER.name)}
+                  onClick={() => handleOpenReport(undefined, PAID_AUDIT_OFFER.name)}
                   className="w-full py-3.5 px-6 rounded-xl bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-xs uppercase tracking-wider transition-all shadow-glow flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>{PAID_AUDIT_OFFER.ctaText}</span>
@@ -360,7 +365,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onOpenReportModal }) =
                   }`}>
                     <button
                       type="button"
-                      onClick={() => onOpenReportModal(undefined, tier.name)}
+                      onClick={() => handleOpenReport(undefined, tier.name)}
                       className={`w-full py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-sm ${
                         isPopular
                           ? 'bg-seen-accent hover:bg-seen-accentDark text-white shadow-glow hover:shadow-lg'
@@ -402,7 +407,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onOpenReportModal }) =
               </div>
               <button
                 type="button"
-                onClick={() => onOpenReportModal(undefined, 'Free AI Visibility Audit')}
+                onClick={() => handleOpenReport(undefined, 'Free AI Visibility Audit')}
                 className="whitespace-nowrap px-6 py-3 rounded-xl bg-white hover:bg-seen-warmgray text-seen-dark border-2 border-seen-dark font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Request Free Audit
@@ -563,7 +568,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onOpenReportModal }) =
                   <td className="p-5 text-center">
                     <button
                       type="button"
-                      onClick={() => onOpenReportModal(undefined, 'Starter Foundation')}
+                      onClick={() => handleOpenReport(undefined, 'Starter Foundation')}
                       className="px-4 py-2 rounded-lg bg-seen-dark hover:bg-seen-accent text-white text-xs font-bold transition-colors cursor-pointer"
                     >
                       Select Starter
@@ -572,7 +577,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onOpenReportModal }) =
                   <td className="p-5 text-center bg-blue-50/40 border-x border-seen-accent/20">
                     <button
                       type="button"
-                      onClick={() => onOpenReportModal(undefined, 'Growth & Market Leader')}
+                      onClick={() => handleOpenReport(undefined, 'Growth & Market Leader')}
                       className="px-4 py-2 rounded-lg bg-seen-accent hover:bg-seen-accentDark text-white text-xs font-bold transition-colors shadow-glow cursor-pointer"
                     >
                       Select Growth
@@ -581,7 +586,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onOpenReportModal }) =
                   <td className="p-5 text-center">
                     <button
                       type="button"
-                      onClick={() => onOpenReportModal(undefined, 'Category Dominance')}
+                      onClick={() => handleOpenReport(undefined, 'Category Dominance')}
                       className="px-4 py-2 rounded-lg bg-seen-dark hover:bg-seen-accent text-white text-xs font-bold transition-colors cursor-pointer"
                     >
                       Select Dominance
@@ -654,7 +659,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onOpenReportModal }) =
                 <div className="pt-2">
                   <button
                     type="button"
-                    onClick={() => onOpenReportModal(undefined, 'Growth & Market Leader')}
+                    onClick={() => handleOpenReport(undefined, 'Growth & Market Leader')}
                     className="w-full py-3 rounded-xl bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer shadow-glow"
                   >
                     Lock In Your Market Area
@@ -737,14 +742,14 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onOpenReportModal }) =
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               type="button"
-              onClick={() => onOpenReportModal(undefined, 'Free AI Visibility Audit')}
+              onClick={() => handleOpenReport(undefined, 'Free AI Visibility Audit')}
               className="w-full sm:w-auto px-8 py-4 rounded-full bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-base transition-all shadow-glow flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Get Your Free AI Visibility Audit</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <Link
-              to="/contact"
+              href="/contact"
               className="w-full sm:w-auto px-8 py-4 rounded-full bg-seen-surface hover:bg-seen-borderDark text-white font-bold text-base transition-all border border-seen-borderDark flex items-center justify-center gap-2"
             >
               <PhoneCall className="w-4 h-4" />

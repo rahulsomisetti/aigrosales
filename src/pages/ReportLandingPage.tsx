@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import { 
   Sparkles, 
   ShieldCheck, 
@@ -6,9 +9,10 @@ import {
 } from 'lucide-react';
 import { AiVisibilityCalculator } from '../components/AiVisibilityCalculator';
 import { PAID_AUDIT_OFFER } from '../data/pricingData';
+import { useModal } from '@/context/ModalContext';
 
 interface ReportLandingPageProps {
-  onOpenReportModal: (options?: { 
+  onOpenReportModal?: (options?: { 
     industry?: string; 
     tier?: string; 
     businessName?: string; 
@@ -22,6 +26,10 @@ export const ReportLandingPage: React.FC<ReportLandingPageProps> = ({
   onOpenReportModal,
   onOpenSampleReport 
 }) => {
+  const { openReportModal, openSampleReport: openSample } = useModal();
+  const handleOpenReport = onOpenReportModal || openReportModal;
+  const handleOpenSample = onOpenSampleReport || openSample;
+
   const reportFeatures = [
     {
       title: '100+ Local Conversational Prompts',
@@ -67,7 +75,7 @@ export const ReportLandingPage: React.FC<ReportLandingPageProps> = ({
 
           {/* Interactive AI Visibility Score™ Calculator Component */}
           <div className="max-w-4xl mx-auto">
-            <AiVisibilityCalculator onOpenReportModal={onOpenReportModal} />
+            <AiVisibilityCalculator onOpenReportModal={handleOpenReport} />
           </div>
 
         </div>
@@ -90,15 +98,14 @@ export const ReportLandingPage: React.FC<ReportLandingPageProps> = ({
               </p>
             </div>
 
-            {onOpenSampleReport && (
-              <button
-                onClick={onOpenSampleReport}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-seen-dark hover:bg-seen-accent text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm cursor-pointer whitespace-nowrap self-start sm:self-auto"
-              >
-                <FileText className="w-4 h-4 text-seen-accent" />
-                <span>Preview 12-Page Sample Report</span>
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={handleOpenSample}
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-seen-dark hover:bg-seen-accent text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm cursor-pointer whitespace-nowrap self-start sm:self-auto"
+            >
+              <FileText className="w-4 h-4 text-seen-accent" />
+              <span>Preview 12-Page Sample Report</span>
+            </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -143,14 +150,16 @@ export const ReportLandingPage: React.FC<ReportLandingPageProps> = ({
 
               <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
                 <button
-                  onClick={() => onOpenReportModal({ tier: PAID_AUDIT_OFFER.name })}
+                  type="button"
+                  onClick={() => handleOpenReport({ tier: PAID_AUDIT_OFFER.name })}
                   className="w-full py-3.5 px-6 rounded-full bg-amber-400 hover:bg-amber-300 text-seen-dark font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm text-center"
                 >
                   <span>Order $499 Audit ($0 Risk)</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <button
-                  onClick={() => onOpenReportModal({ tier: 'Free Initial Visibility Scan' })}
+                  type="button"
+                  onClick={() => handleOpenReport({ tier: 'Free Initial Visibility Scan' })}
                   className="w-full py-3.5 px-6 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer border border-white/20 text-center"
                 >
                   <span>Request Free Scan</span>
@@ -163,7 +172,7 @@ export const ReportLandingPage: React.FC<ReportLandingPageProps> = ({
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
                 100% Confidential · Human analyst reviewed
               </span>
-              <span>BrightLocal 2026 methodology · 7.5x annual consumer AI adoption</span>
+              <span>BrightLocal 2026 methodology · 7.5x annual consumer AI adoption (industry research projection)</span>
             </div>
           </div>
 

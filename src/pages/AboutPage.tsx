@@ -6,11 +6,12 @@ import {
   Database,
   ExternalLink,
   FileCode,
-  Globe
+  Globe 
 } from 'lucide-react';
+import { OpenReportModalButton } from '@/components/ModalButtons';
 
 interface AboutPageProps {
-  onOpenReportModal: () => void;
+  onOpenReportModal?: () => void;
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onOpenReportModal }) => {
@@ -111,12 +112,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenReportModal }) => {
                 </div>
 
                 <div className="pt-4 border-t border-seen-border">
-                  <button
-                    onClick={onOpenReportModal}
-                    className="w-full py-3 rounded-xl bg-seen-dark hover:bg-seen-accent text-white font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                  <OpenReportModalButton
+                    className="w-full py-3 rounded-xl bg-seen-dark hover:bg-seen-accent text-white font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer text-center"
                   >
                     Get Your AI Visibility Report
-                  </button>
+                  </OpenReportModalButton>
                 </div>
               </div>
 

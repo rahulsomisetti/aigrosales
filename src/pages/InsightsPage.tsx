@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { INSIGHTS } from '../data/insights';
 import { 
   ArrowRight, 
@@ -9,9 +11,10 @@ import {
   FileText, 
   Download 
 } from 'lucide-react';
+import { useModal } from '@/context/ModalContext';
 
 interface InsightsPageProps {
-  onOpenReportModal: () => void;
+  onOpenReportModal?: () => void;
   onOpenSampleReport?: () => void;
 }
 
@@ -20,6 +23,9 @@ export const InsightsPage: React.FC<InsightsPageProps> = ({
   onOpenSampleReport 
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const { openReportModal, openSampleReport: openSample } = useModal();
+  const handleOpenReport = onOpenReportModal || openReportModal;
+  const handleOpenSample = onOpenSampleReport || openSample;
 
   const categories = ['All', 'Market Shifts', 'Technical Strategy', 'Best Practices', 'Research', 'Case Analysis'];
 
@@ -43,7 +49,7 @@ export const InsightsPage: React.FC<InsightsPageProps> = ({
     {
       title: 'BrightLocal 2026 Research Brief: The 7.5x AI Surge',
       type: 'Industry Research Summary',
-      desc: 'Data breakdown showing 45% of U.S. consumers now using AI for local business recommendations.',
+      desc: 'Data breakdown showing 45% of U.S. consumers now using AI for local business recommendations (industry projection).',
       readTime: '6 min read'
     }
   ];
@@ -68,18 +74,17 @@ export const InsightsPage: React.FC<InsightsPageProps> = ({
               </p>
             </div>
 
-            {onOpenSampleReport && (
-              <div className="flex-shrink-0">
-                <button
-                  onClick={onOpenSampleReport}
-                  className="inline-flex items-center gap-2.5 px-6 py-4 rounded-2xl bg-seen-dark hover:bg-seen-accent text-white font-bold text-xs uppercase tracking-wider transition-all shadow-card cursor-pointer"
-                >
-                  <FileText className="w-4 h-4 text-seen-accent" />
-                  <span>Preview 12-Page Sample Report</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            )}
+            <div className="flex-shrink-0">
+              <button
+                type="button"
+                onClick={handleOpenSample}
+                className="inline-flex items-center gap-2.5 px-6 py-4 rounded-2xl bg-seen-dark hover:bg-seen-accent text-white font-bold text-xs uppercase tracking-wider transition-all shadow-card cursor-pointer"
+              >
+                <FileText className="w-4 h-4 text-seen-accent" />
+                <span>Preview 12-Page Sample Report</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -101,26 +106,28 @@ export const InsightsPage: React.FC<InsightsPageProps> = ({
             {downloadableGuides.map((guide) => (
               <div
                 key={guide.title}
-                className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-colors flex flex-col justify-between space-y-4"
+                className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-seen-accent/60 transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <span className="text-[10px] font-mono uppercase font-bold text-blue-300 block mb-1">
-                    {guide.type} · {guide.readTime}
-                  </span>
-                  <h3 className="text-base font-bold font-display text-white mb-2 leading-snug">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-gray-400 mb-2">
+                    <span className="text-blue-300 font-bold uppercase">{guide.type}</span>
+                    <span>{guide.readTime}</span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white group-hover:text-blue-200 transition-colors mb-1.5 leading-snug">
                     {guide.title}
-                  </h3>
-                  <p className="text-xs text-gray-300 leading-relaxed">
+                  </h4>
+                  <p className="text-xs text-gray-400 leading-relaxed mb-4">
                     {guide.desc}
                   </p>
                 </div>
 
                 <button
-                  onClick={onOpenReportModal}
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-seen-accent hover:text-white transition-colors pt-2 border-t border-white/10 cursor-pointer"
+                  type="button"
+                  onClick={handleOpenReport}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors pt-3 border-t border-white/10 cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  <span>Access Intelligence Brief</span>
+                  <span>Request Strategy PDF</span>
                 </button>
               </div>
             ))}
@@ -137,6 +144,7 @@ export const InsightsPage: React.FC<InsightsPageProps> = ({
             {categories.map((cat) => (
               <button
                 key={cat}
+                type="button"
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer border ${
                   selectedCategory === cat
@@ -179,7 +187,7 @@ export const InsightsPage: React.FC<InsightsPageProps> = ({
                     </div>
 
                     <h2 className="text-xl font-bold text-seen-dark font-display group-hover:text-seen-accent transition-colors leading-snug">
-                      <Link to={`/insights/${art.slug}`}>
+                      <Link href={`/insights/${art.slug}`}>
                         {art.title}
                       </Link>
                     </h2>
@@ -203,7 +211,7 @@ export const InsightsPage: React.FC<InsightsPageProps> = ({
                   </div>
 
                   <Link
-                    to={`/insights/${art.slug}`}
+                    href={`/insights/${art.slug}`}
                     className="inline-flex items-center gap-1 text-xs font-bold text-seen-accent group-hover:translate-x-0.5 transition-transform"
                   >
                     <span>Read Article</span>
@@ -228,7 +236,8 @@ export const InsightsPage: React.FC<InsightsPageProps> = ({
               </p>
             </div>
             <button
-              onClick={onOpenReportModal}
+              type="button"
+              onClick={handleOpenReport}
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-seen-dark hover:bg-seen-accent text-white text-xs font-bold uppercase tracking-wider transition-colors whitespace-nowrap cursor-pointer"
             >
               <span>Get Your AI Visibility Report</span>

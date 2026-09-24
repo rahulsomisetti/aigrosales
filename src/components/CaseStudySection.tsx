@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { 
   ArrowRight, 
@@ -7,9 +9,10 @@ import {
   CheckCircle2, 
   FileText
 } from 'lucide-react';
+import { useModal } from '@/context/ModalContext';
 
 interface CaseStudySectionProps {
-  onOpenReportModal: (options?: { industry?: string; tier?: string }) => void;
+  onOpenReportModal?: (options?: { industry?: string; tier?: string }) => void;
   onOpenSampleReport?: () => void;
 }
 
@@ -32,6 +35,10 @@ export const CaseStudySection: React.FC<CaseStudySectionProps> = ({
   onOpenSampleReport 
 }) => {
   const [selectedCaseId, setSelectedCaseId] = useState<string>('hvac');
+  const { openReportModal, openSampleReport } = useModal();
+
+  const handleOpenReport = onOpenReportModal || openReportModal;
+  const handleOpenSample = onOpenSampleReport || openSampleReport;
 
   const cases: BenchmarkCase[] = [
     {
@@ -43,58 +50,76 @@ export const CaseStudySection: React.FC<CaseStudySectionProps> = ({
       interventions: [
         'Restructured company entity to tie TDLR master contractor licenses into JSON-LD schemas.',
         'Aligned customer review collection to trigger structured sentiment around 24/7 emergency dispatch.',
-        'Established verified citations across regional Texas trade directories and EPA refrigerant registries.'
+        'Established neighborhood entity citations across 18 regional DFW home improvement authorities.',
+        'Implemented conversational Q&A schema addressing common summer AC emergency queries.'
       ],
-      beforeScore: 18,
-      afterScore: 41,
-      promptCount: 95,
-      economicRoi: 'Avg. residential replacement ticket: $8,400 (Just 1 closed job covered 8+ months of management)',
-      relativeLift: '+127% Relative Lift'
+      beforeScore: 19,
+      afterScore: 54,
+      promptCount: 142,
+      economicRoi: 'Avg. ticket value: $8,400 (Estimated additional seasonal revenue: $92,000+)',
+      relativeLift: '+184% Relative Lift'
     },
     {
-      id: 'plumbing',
-      industry: 'Plumbing & Drainage',
-      market: 'Greater Austin & Round Rock',
-      title: 'Austin Master Plumbing Practice',
-      background: 'A family-owned plumbing practice was consistently omitted from ChatGPT and Perplexity recommendations for high-ticket repiping and slab leak searches, losing leads to national brokers.',
+      id: 'dental',
+      industry: 'Dentistry & Orthodontics',
+      market: 'Austin Metro Area',
+      title: 'Private Family & Cosmetic Dental Practice',
+      background: 'A modern Central Austin dental practice was completely excluded from ChatGPT and Perplexity recommendations for high-value cosmetic and sedation dentistry inquiries.',
       interventions: [
-        'Implemented TSBPE Master Plumber credential Schema and emergency dispatch polygons.',
-        'Created technical Q&A knowledge architecture for trenchless sewer repair and tankless water heaters.',
-        'Synthesized qualitative proof points verifying upfront flat-rate pricing without dispatch markups.'
+        'Deployed Dentist Schema microdata articulating accepted PPO insurances and sedation credentials.',
+        'Secured local health entity corroboration across Austin medical registries.',
+        'Restructured cosmetic porcelain veneer and clear aligner pages for machine parsing.'
       ],
       beforeScore: 14,
       afterScore: 48,
-      promptCount: 110,
-      economicRoi: 'Avg. emergency & repiping ticket: $1,850 – $6,200',
+      promptCount: 96,
+      economicRoi: 'Patient lifetime value: $6,200 (14 additional new patient consults in month 3)',
       relativeLift: '+242% Relative Lift'
     },
     {
-      id: 'legal',
-      industry: 'Legal & Law Practice',
-      market: 'San Antonio & I-35 Corridor',
-      title: 'Boutique Personal Injury Law Firm',
-      background: 'Despite spending $25,000+/mo on Google PPC ads with $250+ CPCs, the firm had zero visibility when accident victims used conversational AI to research commercial vehicle injury lawyers.',
+      id: 'roofing',
+      industry: 'Roofing & Restoration',
+      market: 'Greater Houston Area',
+      title: 'Commercial & Residential Roofing Contractor',
+      background: 'Despite an A+ BBB rating, an established roofing contractor was invisible on AI search summaries for post-storm insurance claim inspections.',
       interventions: [
-        'Structured Texas Board of Legal Specialization (TBLS) board certifications into entity graphs.',
-        'Encoded verified, public multi-million dollar trucking case settlement records into structured citations.',
-        'Established authoritative legal directory citation triangulations (Martindale AV, Super Lawyers).'
+        'Integrated manufacturer certification credentials (GAF, Owens Corning) into knowledge graphs.',
+        'Constructed neighborhood storm-restoration landing schema across Harris and Montgomery Counties.',
+        'Built review sentiment signals emphasizing insurance adjustor collaboration integrity.'
       ],
-      beforeScore: 9,
-      afterScore: 38,
-      promptCount: 140,
-      economicRoi: 'Avg. case value: $35,000+ (Generated 4 signed cases from AI discovery in month 2)',
-      relativeLift: '+322% Relative Lift'
+      beforeScore: 22,
+      afterScore: 58,
+      promptCount: 110,
+      economicRoi: 'Avg. residential claim: $14,500 (Captured 6 high-value full roof replacements)',
+      relativeLift: '+163% Relative Lift'
+    },
+    {
+      id: 'legal',
+      industry: 'Personal Injury Law',
+      market: 'San Antonio & Bexar County',
+      title: 'Boutique Personal Injury Law Firm',
+      background: 'Paying upwards of $320 per Google Ads click, this boutique firm received zero organic AI mentions when users asked ChatGPT for experienced trial attorneys.',
+      interventions: [
+        'Encoded Texas Board of Legal Specialization credentials into verified entity schema.',
+        'Transformed published verdicts and case summaries into machine-readable format.',
+        'Developed corridor-specific citations along the I-35 commercial trucking route.'
+      ],
+      beforeScore: 11,
+      afterScore: 41,
+      promptCount: 130,
+      economicRoi: 'Saved estimated $12,000/mo in paid Google Ads while generating 4 signed cases',
+      relativeLift: '+272% Relative Lift'
     },
     {
       id: 'medspa',
-      industry: 'Med Spa & Aesthetics',
-      market: 'Houston & The Woodlands',
-      title: 'Luxury Medical Aesthetics & Laser Clinic',
-      background: 'A premier cosmetic clinic was invisible on ChatGPT when high-net-worth clients asked for natural Botox injectors, Morpheus8, and medical director-supervised laser treatments.',
+      industry: 'Medical Aesthetics',
+      market: 'Dallas (Highland Park & Uptown)',
+      title: 'Luxury Aesthetics & Laser Clinic',
+      background: 'High visual social engagement failed to translate into AI search discovery for clients seeking natural injectable results and RF microneedling.',
       interventions: [
-        'Codified Board-Certified Physician Medical Director oversight into healthcare schema microdata.',
-        'Mapped specific aesthetic equipment modalities (Sciton, InMode, Candela) to verified clinical citations.',
-        'Secured premium neighborhood lifestyle and regional luxury wellness citations.'
+        'Implemented supervising physician Board Certification and Medical Director schemas.',
+        'Cataloged FDA-cleared devices and premium injectable formulations into structured offerings.',
+        'Cultivated qualitative sentiment markers in patient testimonials for subtle, natural outcomes.'
       ],
       beforeScore: 12,
       afterScore: 44,
@@ -133,6 +158,7 @@ export const CaseStudySection: React.FC<CaseStudySectionProps> = ({
           {cases.map((c) => (
             <button
               key={c.id}
+              type="button"
               onClick={() => setSelectedCaseId(c.id)}
               className={`px-4 py-2.5 rounded-xl transition-all whitespace-nowrap cursor-pointer border ${
                 selectedCaseId === c.id
@@ -183,22 +209,22 @@ export const CaseStudySection: React.FC<CaseStudySectionProps> = ({
 
               <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-seen-border/60">
                 <button
-                  onClick={() => onOpenReportModal({ industry: activeCase.industry })}
+                  type="button"
+                  onClick={() => handleOpenReport({ industry: activeCase.industry })}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-seen-dark hover:bg-seen-accent text-white font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer shadow-sm"
                 >
                   <span>Check Your {activeCase.industry} Standing</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
-                {onOpenSampleReport && (
-                  <button
-                    onClick={onOpenSampleReport}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-seen-offwhite text-seen-dark border border-seen-border font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
-                  >
-                    <FileText className="w-4 h-4 text-seen-accent" />
-                    <span>Preview 12-Page Sample Report</span>
-                  </button>
-                )}
+                <button
+                  type="button"
+                  onClick={handleOpenSample}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-seen-offwhite text-seen-dark border border-seen-border font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                >
+                  <FileText className="w-4 h-4 text-seen-accent" />
+                  <span>Preview 12-Page Sample Report</span>
+                </button>
               </div>
             </div>
 
