@@ -123,7 +123,7 @@ export const InsightsPage: React.FC<InsightsPageProps> = ({
 
                 <button
                   type="button"
-                  onClick={handleOpenReport}
+                  onClick={() => handleOpenReport()}
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors pt-3 border-t border-white/10 cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -237,7 +237,7 @@ export const InsightsPage: React.FC<InsightsPageProps> = ({
             </div>
             <button
               type="button"
-              onClick={handleOpenReport}
+              onClick={() => handleOpenReport()}
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-seen-dark hover:bg-seen-accent text-white text-xs font-bold uppercase tracking-wider transition-colors whitespace-nowrap cursor-pointer"
             >
               <span>Get Your AI Visibility Report</span>

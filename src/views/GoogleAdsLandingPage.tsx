@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { 
   Sparkles, 
   ShieldCheck, 
@@ -1190,16 +1191,16 @@ export const GoogleAdsLandingPage: React.FC<GoogleAdsLandingPageProps> = ({
               <div className="text-white font-bold uppercase tracking-wider text-xs">Compliance & Policies</div>
               <ul className="space-y-1.5 text-xs">
                 <li>
-                  <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                  <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+                  <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
                 </li>
                 <li>
-                  <Link to="/how-it-works" className="hover:text-white transition-colors">How GEO Works</Link>
+                  <Link href="/how-it-works" className="hover:text-white transition-colors">How GEO Works</Link>
                 </li>
                 <li>
-                  <Link to="/contact" className="hover:text-white transition-colors">Direct Contact</Link>
+                  <Link href="/contact" className="hover:text-white transition-colors">Direct Contact</Link>
                 </li>
               </ul>
             </div>
@@ -1211,8 +1212,8 @@ export const GoogleAdsLandingPage: React.FC<GoogleAdsLandingPageProps> = ({
               © {new Date().getFullYear()} {SITE_CONFIG.companyName}. All rights reserved. Registered in Texas, USA.
             </div>
             <div className="flex items-center gap-4">
-              <Link to="/privacy" className="hover:text-gray-400">Privacy</Link>
-              <Link to="/terms" className="hover:text-gray-400">Terms</Link>
+              <Link href="/privacy" className="hover:text-gray-400">Privacy</Link>
+              <Link href="/terms" className="hover:text-gray-400">Terms</Link>
               <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 inline-flex items-center gap-1">
                 <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
                 WhatsApp Support

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
-import { INDUSTRIES } from '../data/industries';
+import Link from 'next/link';
+import { INDUSTRIES, IndustryData } from '../data/industries';
 import { 
   ArrowRight, 
   AlertTriangle, 
@@ -13,9 +13,12 @@ import {
 } from 'lucide-react';
 import { AiVisibilityCalculator } from '../components/AiVisibilityCalculator';
 import { PAID_AUDIT_OFFER } from '../data/pricingData';
+import { OpenReportModalButton } from '../components/ModalButtons';
 
 interface IndustryDetailPageProps {
-  onOpenReportModal: (options?: string | { 
+  industry?: IndustryData;
+  slug?: string;
+  onOpenReportModal?: (options?: string | { 
     industry?: string; 
     tier?: string; 
     businessName?: string; 
@@ -24,12 +27,11 @@ interface IndustryDetailPageProps {
   }) => void;
 }
 
-export const IndustryDetailPage: React.FC<IndustryDetailPageProps> = ({ onOpenReportModal }) => {
-  const { slug } = useParams<{ slug: string }>();
-  const industry = slug ? INDUSTRIES[slug] : null;
+export const IndustryDetailPage: React.FC<IndustryDetailPageProps> = ({ industry: propIndustry, slug, onOpenReportModal }) => {
+  const industry = propIndustry || (slug ? INDUSTRIES[slug] : null);
 
   if (!industry) {
-    return <Navigate to="/who-we-help" replace />;
+    return null;
   }
 
   return (
@@ -38,7 +40,7 @@ export const IndustryDetailPage: React.FC<IndustryDetailPageProps> = ({ onOpenRe
       {/* Back Link */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Link
-          to="/who-we-help"
+          href="/who-we-help"
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-seen-muted hover:text-seen-dark transition-colors"
         >
           <ChevronLeft className="w-4 h-4" />
@@ -67,19 +69,19 @@ export const IndustryDetailPage: React.FC<IndustryDetailPageProps> = ({ onOpenRe
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <button
-                  onClick={() => onOpenReportModal({ industry: industry.name })}
+                <OpenReportModalButton
+                  options={{ industry: industry.name }}
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-seen-accent hover:bg-seen-accentDark text-white font-semibold text-sm transition-all shadow-sm hover:shadow-glow cursor-pointer"
                 >
                   <span>Get Your {industry.name} AI Audit</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => onOpenReportModal({ industry: industry.name, tier: PAID_AUDIT_OFFER.name })}
+                </OpenReportModalButton>
+                <OpenReportModalButton
+                  options={{ industry: industry.name, tier: PAID_AUDIT_OFFER.name }}
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white hover:bg-seen-offwhite text-seen-dark font-semibold text-sm transition-all border border-seen-border shadow-sm cursor-pointer"
                 >
                   <span>Order $499 Deep Audit ($0 Risk)</span>
-                </button>
+                </OpenReportModalButton>
               </div>
 
               {/* High-Level Industry Metrics */}
@@ -385,19 +387,19 @@ export const IndustryDetailPage: React.FC<IndustryDetailPageProps> = ({ onOpenRe
               </div>
 
               <div className="flex flex-col gap-3 flex-shrink-0">
-                <button
-                  onClick={() => onOpenReportModal({ industry: industry.name, tier: PAID_AUDIT_OFFER.name })}
+                <OpenReportModalButton
+                  options={{ industry: industry.name, tier: PAID_AUDIT_OFFER.name }}
                   className="px-7 py-4 rounded-full bg-amber-400 hover:bg-amber-300 text-seen-dark font-black text-xs uppercase tracking-wider transition-all shadow-sm cursor-pointer text-center flex items-center justify-center gap-2"
                 >
                   <span>Order $499 Audit ($0 Risk)</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => onOpenReportModal({ industry: industry.name, tier: 'Free Initial Visibility Scan' })}
+                </OpenReportModalButton>
+                <OpenReportModalButton
+                  options={{ industry: industry.name, tier: 'Free Initial Visibility Scan' }}
                   className="px-7 py-3 rounded-full bg-seen-offwhite hover:bg-seen-dark hover:text-white text-seen-dark font-bold text-xs uppercase tracking-wider transition-all border border-seen-border cursor-pointer text-center"
                 >
                   <span>Request Free Scan</span>
-                </button>
+                </OpenReportModalButton>
               </div>
             </div>
           </div>

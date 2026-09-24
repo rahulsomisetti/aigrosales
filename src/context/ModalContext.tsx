@@ -42,8 +42,14 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       setPrefillBusinessName(industryOrOptions.businessName);
       setPrefillWebsite(industryOrOptions.website);
       setPrefillCity(industryOrOptions.city);
-    } else {
+    } else if (typeof industryOrOptions === 'string') {
       setPrefillIndustry(industryOrOptions);
+      setPrefillTier(tier);
+      setPrefillBusinessName(undefined);
+      setPrefillWebsite(undefined);
+      setPrefillCity(undefined);
+    } else {
+      setPrefillIndustry(undefined);
       setPrefillTier(tier);
       setPrefillBusinessName(undefined);
       setPrefillWebsite(undefined);

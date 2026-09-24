@@ -3,17 +3,40 @@
   AddType application/javascript .js .mjs
   AddType text/css .css
   AddType image/svg+xml .svg
+  AddType application/json .json
+  AddType text/markdown .txt
 </IfModule>
 
+# 301 Permanent Redirects for legacy routes
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/who-we-help/hvac/?$ /industries/hvac/
+  RedirectMatch 301 ^/who-we-help/plumbing/?$ /industries/plumbing/
+  RedirectMatch 301 ^/who-we-help/roofing/?$ /industries/roofing/
+  RedirectMatch 301 ^/who-we-help/dental/?$ /industries/dental/
+  RedirectMatch 301 ^/who-we-help/legal/?$ /industries/law-firms/
+  RedirectMatch 301 ^/who-we-help/medspa/?$ /industries/med-spa/
+</IfModule>
+
+# Apache DirectoryIndex & URL Rewriting
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
+
+  # Handle trailing slash for subdirectories
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.*)(?<!/)$ /$1/ [L,R=301]
+
+  # Don't rewrite files or directories that exist
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Rewrite non-existent files to 404.html
+  RewriteRule . /404.html [L]
 </IfModule>
+
+ErrorDocument 404 /404.html
 
 # Enable Browser Caching for static assets
 <IfModule mod_expires.c>
@@ -21,8 +44,10 @@
   ExpiresByType image/svg+xml "access plus 1 month"
   ExpiresByType image/jpeg "access plus 1 month"
   ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
 # Enable GZIP Compression

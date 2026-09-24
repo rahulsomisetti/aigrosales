@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { 
   ArrowRight, 
   Sparkles, 
@@ -19,9 +19,10 @@ import { WhoWeHelpGrid } from '../components/WhoWeHelpGrid';
 import { CaseStudySection } from '../components/CaseStudySection';
 import { FaqAccordion } from '../components/FaqAccordion';
 import { AiVisibilityCalculator } from '../components/AiVisibilityCalculator';
+import { OpenReportModalButton } from '../components/ModalButtons';
 
 interface HomePageProps {
-  onOpenReportModal: (options?: string | { 
+  onOpenReportModal?: (options?: string | { 
     industry?: string; 
     tier?: string; 
     businessName?: string; 
@@ -68,16 +69,15 @@ export const HomePage: React.FC<HomePageProps> = ({
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                <button
-                  onClick={() => onOpenReportModal()}
+                <OpenReportModalButton
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-seen-accent hover:bg-seen-accentDark text-white font-semibold text-base transition-all shadow-sm hover:shadow-glow group cursor-pointer"
                 >
                   <span>Get Your AI Visibility Report</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                </OpenReportModalButton>
 
                 <Link
-                  to="/how-it-works"
+                  href="/how-it-works"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-seen-warmgray text-seen-dark font-semibold text-base transition-colors border border-seen-border"
                 >
                   <span>See How It Works</span>
@@ -513,13 +513,12 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           <div className="text-center pt-4">
-            <button
-              onClick={() => onOpenReportModal()}
+            <OpenReportModalButton
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-seen-dark hover:bg-seen-accent text-white font-semibold text-sm transition-all shadow-sm cursor-pointer"
             >
               <span>Get Started with an Audit</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </OpenReportModalButton>
           </div>
 
         </div>
@@ -624,7 +623,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
             <div>
               <Link
-                to="/pricing"
+                href="/pricing"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-seen-dark hover:bg-seen-accent text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
               >
                 <span>Full Comparison Matrix</span>
@@ -646,12 +645,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                 Test your business against 50–200 conversational queries across ChatGPT, Claude, and Google AI. When you partner with us for monthly management within 30 days, <span className="text-emerald-400 font-bold">your entire $499 audit fee is credited 100%</span> toward your retainers.
               </p>
             </div>
-            <button
-              onClick={() => onOpenReportModal(undefined, 'Comprehensive $499 AI Audit (Credited Toward Retainer)')}
+            <OpenReportModalButton
+              tier="Comprehensive $499 AI Audit (Credited Toward Retainer)"
               className="whitespace-nowrap px-7 py-3.5 rounded-xl bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-xs uppercase tracking-wider transition-all shadow-glow cursor-pointer"
             >
               Order $499 Audit
-            </button>
+            </OpenReportModalButton>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -696,12 +695,12 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               <div className="pt-6 mt-6 border-t border-seen-border">
-                <button
-                  onClick={() => onOpenReportModal(undefined, 'Starter Foundation')}
+                <OpenReportModalButton
+                  tier="Starter Foundation"
                   className="w-full py-3 rounded-xl bg-seen-dark hover:bg-seen-accent text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   Select Starter
-                </button>
+                </OpenReportModalButton>
               </div>
             </div>
 
@@ -753,12 +752,12 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               <div className="pt-6 mt-6 border-t border-seen-borderDark">
-                <button
-                  onClick={() => onOpenReportModal(undefined, 'Growth & Market Leader')}
+                <OpenReportModalButton
+                  tier="Growth & Market Leader"
                   className="w-full py-3 rounded-xl bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-glow cursor-pointer"
                 >
                   Choose Growth Plan
-                </button>
+                </OpenReportModalButton>
               </div>
             </div>
 
@@ -802,12 +801,12 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               <div className="pt-6 mt-6 border-t border-seen-border">
-                <button
-                  onClick={() => onOpenReportModal(undefined, 'Category Dominance')}
+                <OpenReportModalButton
+                  tier="Category Dominance"
                   className="w-full py-3 rounded-xl bg-seen-dark hover:bg-seen-accent text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   Select Dominance
-                </button>
+                </OpenReportModalButton>
               </div>
             </div>
 
@@ -815,7 +814,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           <div className="mt-8 text-center">
             <Link
-              to="/pricing"
+              href="/pricing"
               className="inline-flex items-center gap-1.5 text-sm font-bold text-seen-accent hover:text-seen-accentDark transition-colors"
             >
               <span>Explore all services, deliverables, and full comparison matrix</span>
@@ -851,13 +850,12 @@ export const HomePage: React.FC<HomePageProps> = ({
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => onOpenReportModal()}
+            <OpenReportModalButton
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-base transition-all shadow-glow group cursor-pointer"
             >
               <span>Get Your AI Visibility Report</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </button>
+            </OpenReportModalButton>
           </div>
 
           <p className="text-xs sm:text-sm text-gray-400 mt-4 font-medium">

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:export": "cross-env NEXT_OUTPUT=export next build",
     "start": "next start",
     "lint": "oxlint"
   },
@@ -20,6 +21,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "autoprefixer": "^10.5.5",
+    "cross-env": "^10.1.0",
     "oxlint": "^1.79.0",
     "postcss": "^8.5.28",
     "tailwindcss": "^3.4.19",

@@ -1,18 +1,23 @@
 import React from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
-import { INSIGHTS } from '../data/insights';
-import { ArrowRight, ChevronLeft, Clock, Share2, ShieldCheck, Sparkles } from 'lucide-react';
+import Link from 'next/link';
+import { INSIGHTS, InsightArticle } from '../data/insights';
+import { ArrowRight, ChevronLeft, Clock, Sparkles } from 'lucide-react';
+import { OpenReportModalButton } from '@/components/ModalButtons';
 
 interface InsightDetailPageProps {
-  onOpenReportModal: () => void;
+  article?: InsightArticle;
+  slug?: string;
+  onOpenReportModal?: () => void;
 }
 
-export const InsightDetailPage: React.FC<InsightDetailPageProps> = ({ onOpenReportModal }) => {
-  const { slug } = useParams<{ slug: string }>();
-  const article = slug ? INSIGHTS.find(a => a.slug === slug) : null;
+export const InsightDetailPage: React.FC<InsightDetailPageProps> = ({ 
+  article: propArticle, 
+  slug 
+}) => {
+  const article = propArticle || (slug ? INSIGHTS.find(a => a.slug === slug) : null);
 
   if (!article) {
-    return <Navigate to="/insights" replace />;
+    return null;
   }
 
   return (
@@ -21,7 +26,7 @@ export const InsightDetailPage: React.FC<InsightDetailPageProps> = ({ onOpenRepo
       {/* Back button */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link
-          to="/insights"
+          href="/insights"
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-seen-muted hover:text-seen-dark transition-colors"
         >
           <ChevronLeft className="w-4 h-4" />
@@ -100,13 +105,12 @@ export const InsightDetailPage: React.FC<InsightDetailPageProps> = ({ onOpenRepo
               Don’t guess how ChatGPT or Perplexity represents your business. Get a comprehensive AI Visibility Report benchmarking your trade across 100+ local queries.
             </p>
             <div className="pt-2">
-              <button
-                onClick={onOpenReportModal}
+              <OpenReportModalButton
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-seen-accent hover:bg-seen-accentDark text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
               >
                 <span>Get Your AI Visibility Report</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </OpenReportModalButton>
             </div>
           </div>
         </div>

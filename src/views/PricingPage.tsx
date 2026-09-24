@@ -429,7 +429,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onOpenReportModal }) =
                 </p>
               </div>
               <Link
-                to="/contact"
+                href="/contact"
                 className="whitespace-nowrap px-6 py-3 rounded-xl bg-seen-accent hover:bg-seen-accentDark text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-1.5"
               >
                 <span>Talk to Strategy</span>
