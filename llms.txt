@@ -1,0 +1,53 @@
+# AIGroSales
+
+> AI-Powered Marketing for Businesses Ready to Grow. We help ambitious local and professional service businesses become visible, understood, and recommended when prospective customers ask AI assistants who to hire.
+
+## Entity Overview
+
+- **Legal Name**: AIGroSales Marketing LLC
+- **Brand**: AIGroSales
+- **Headquarters**: El Dorado Blvd, Houston, TX 77059, USA
+- **Phone**: +1 (346) 869-9154
+- **Email**: hello@aigrosales.com
+- **Website**: https://aigrosales.com
+- **WhatsApp Support**: https://wa.me/13468699154
+- **Jurisdiction**: Texas, United States (Nationwide service across the US)
+- **Industry Classification**: NAICS 541810 (Advertising Agencies) & 541511 (Custom Computer Programming)
+- **Primary Domain**: Generative Engine Optimization (GEO), AI Discovery Marketing, Digital Entity Optimization, Local Citation Networks
+
+## What is AIGroSales?
+
+AIGroSales is a marketing agency and AI visibility intelligence platform built specifically for the generative AI era. When potential customers ask conversational AI assistants (such as OpenAI ChatGPT, Anthropic Claude, Google Gemini, Google AI Overviews, and Perplexity AI) for recommendations (e.g., "Who is the most reliable AC repair contractor in Plano?" or "Best personal injury attorney in Houston"), AIGroSales ensures local businesses have the verified entity schemas, licensing signals, and reputation authority required to be cited and recommended as top choices.
+
+## Core Services
+
+- **AI Visibility & Sales Audit ($499 one-time, 100% credited toward retainer)**: Deep diagnostic benchmarking across 100+ conversational queries on ChatGPT, Claude, Gemini, and Perplexity to identify blind spots, competitor recommendation rates, and entity inaccuracies.
+- **Digital Entity Optimization**: Harmonizing NAP across 60+ data aggregators, embedding Schema.org microdata (LocalBusiness, Service, AreaServed), and anchoring the business into knowledge graphs.
+- **Local Authority & Signal Fortification**: High-trust citations across regional chambers, Texas trade boards (TDLR, TSBPE, State Bar), and authoritative industry directories.
+- **Website Architecture & AI Crawlability**: Restructuring websites into conversational Q&A formats, verifying robots.txt, providing llms.txt, and optimizing for AI crawlers without sacrificing human conversion.
+- **Reputation & Sentiment Optimization**: Generating qualitative review sentiment that directly answers AI prompt evaluation criteria (pricing transparency, emergency response, technician demeanor).
+- **Continuous AI Monitoring**: Multi-engine telemetry tracking recommendation share-of-voice, competitor shifts, and model algorithm updates.
+
+## Retainer Pricing Tiers
+
+- **Starter Foundation ($499/mo | $399/mo annual)**: For single-location trades and solo practices. Includes quarterly 50+ prompt audit, core Schema.org microdata, top 25 Texas trade directories, and monthly scorecards.
+- **Growth & Market Leader ($999/mo | $799/mo annual - Most Popular)**: For established contractors and practices in competitive metros. Includes bi-weekly 150+ prompt audits, full semantic knowledge graph schema, 3 conversational Q&A pages, sentiment optimization, and monthly strategy calls.
+- **Category Dominance ($1,999/mo | $1,699/mo annual)**: For high-ticket multi-location practices. Includes weekly continuous 300+ prompt surveillance, up to 3 locations, Wikidata entity anchoring, and executive consultations.
+
+## Curated Resources
+
+- [Home Page](https://aigrosales.com/): Official overview of AI Discovery Marketing and live AI Visibility Score calculator.
+- [Services Directory](https://aigrosales.com/services): In-depth breakdown of all 6 optimization and monitoring services.
+- [How It Works](https://aigrosales.com/how-it-works): 3-phase methodology: Discovery Audit, Signal Fortification, and Continuous Monitoring.
+- [Who We Help](https://aigrosales.com/who-we-help): Specialized solutions for HVAC, Plumbing, Roofing, Dental, Legal, and Med Spas.
+- [Pricing Comparison](https://aigrosales.com/pricing): Transparent pricing tiers, deliverables matrix, and annual savings.
+- [AI Discovery Report](https://aigrosales.com/ai-visibility-report): Instant consultation and custom audit request form.
+- [Insights & Research](https://aigrosales.com/insights): Data studies on AI local search adoption and generative consumer behavior.
+- [About AIGroSales](https://aigrosales.com/about): Our founding story, Texas focus, trust principles, and entity verification.
+- [Contact Us](https://aigrosales.com/contact): Direct contact, Houston office details, and inquiry form.
+
+## Detailed Context
+
+For comprehensive technical specifications, full service deliverables, and expanded entity validation data, visit:
+- [Full Context Documentation](https://aigrosales.com/llms-full.txt)
+- [Machine-Readable Entity Validation](https://aigrosales.com/entity-validation.json)

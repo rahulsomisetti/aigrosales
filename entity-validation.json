@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "entity": {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://aigrosales.com/#organization",
+    "name": "AIGroSales",
+    "legalName": "AIGroSales Marketing LLC",
+    "alternateName": [
+      "AIGroSales",
+      "AIGroSales AI Marketing",
+      "AIGroSales Texas"
+    ],
+    "url": "https://aigrosales.com",
+    "logo": "https://aigrosales.com/favicon.svg",
+    "image": "https://aigrosales.com/og-image.jpg",
+    "description": "AIGroSales provides AI-powered marketing, Generative Engine Optimization (GEO), and digital entity optimization for growing local and professional service businesses.",
+    "slogan": "Get Seen by AI. Get Chosen by Customers.",
+    "telephone": "+1-346-869-9154",
+    "email": "hello@aigrosales.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "El Dorado Blvd",
+      "addressLocality": "Houston",
+      "addressRegion": "TX",
+      "postalCode": "77059",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 29.5636,
+      "longitude": -95.1275
+    },
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "United States"
+      },
+      {
+        "@type": "State",
+        "name": "Texas"
+      }
+    ],
+    "industryClassification": {
+      "naics": ["541810", "541511"],
+      "isicV4": "7310"
+    },
+    "sameAs": [
+      "https://aigrosales.com",
+      "https://wa.me/13468699154"
+    ],
+    "knowsAbout": [
+      {
+        "@type": "Thing",
+        "name": "Artificial Intelligence",
+        "sameAs": "https://www.wikidata.org/wiki/Q11660"
+      },
+      {
+        "@type": "Thing",
+        "name": "Search Engine Optimization",
+        "sameAs": "https://www.wikidata.org/wiki/Q180711"
+      },
+      {
+        "@type": "Thing",
+        "name": "Large Language Model",
+        "sameAs": "https://www.wikidata.org/wiki/Q115305900"
+      },
+      {
+        "@type": "Thing",
+        "name": "Generative Artificial Intelligence",
+        "sameAs": "https://www.wikidata.org/wiki/Q117211832"
+      },
+      {
+        "@type": "Thing",
+        "name": "Local Search",
+        "sameAs": "https://www.wikidata.org/wiki/Q6664210"
+      },
+      {
+        "@type": "Thing",
+        "name": "Knowledge Graph",
+        "sameAs": "https://www.wikidata.org/wiki/Q33002955"
+      },
+      {
+        "@type": "Thing",
+        "name": "Entity Disambiguation",
+        "sameAs": "https://www.wikidata.org/wiki/Q5381832"
+      }
+    ],
+    "validationStatus": "ACTIVE_VERIFIED",
+    "lastUpdated": "2026-09-22T19:08:00Z"
+  }
+}

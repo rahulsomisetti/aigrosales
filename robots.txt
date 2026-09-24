@@ -1,0 +1,110 @@
+User-Agent: *
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: Google-Extended
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: GoogleOther
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: GPTBot
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: OAI-SearchBot
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: ClaudeBot
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: Claude-Web
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: anthropic-ai
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: PerplexityBot
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: Applebot
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: Applebot-Extended
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: Meta-ExternalAgent
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: cohere-ai
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: MistralBot
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+User-Agent: Amazonbot
+Allow: /
+Disallow: /lp
+Disallow: /google-ads
+Disallow: /get-seen
+
+Host: https://aigrosales.com
+Sitemap: https://aigrosales.com/sitemap.xml
