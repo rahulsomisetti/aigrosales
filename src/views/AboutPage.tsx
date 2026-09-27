@@ -170,6 +170,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenReportModal }) => {
                 <li><strong className="text-seen-dark">Coordinates:</strong> 29.5636° N, -95.1275° W</li>
                 <li><strong className="text-seen-dark">Phone:</strong> +1 (346) 869-9154</li>
                 <li><strong className="text-seen-dark">Email:</strong> hello@aigrosales.com</li>
+                <li>
+                  <strong className="text-seen-dark">LinkedIn:</strong>{' '}
+                  <a
+                    href="https://www.linkedin.com/company/aigrosales/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-seen-accent hover:underline"
+                  >
+                    linkedin.com/company/aigrosales
+                  </a>
+                </li>
               </ul>
             </div>
 

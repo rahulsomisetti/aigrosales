@@ -8,7 +8,9 @@ export const SITE_CONFIG = {
   phoneRaw: '13468699154',
   address: 'El Dorado Blvd, Houston, TX 77059, USA',
   whatsappUrl: 'https://wa.me/13468699154',
+  linkedinUrl: 'https://www.linkedin.com/company/aigrosales/',
   siteUrl: 'https://aigrosales.com',
+  gaMeasurementId: 'G-3LW5D9VE8B',
 
   // Web3Forms Access Key for email delivery to hello@aigrosales.com
   web3formsAccessKey:

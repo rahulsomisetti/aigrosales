@@ -130,7 +130,11 @@ const globalSchemas = {
           areaServed: 'US',
         },
       ],
-      sameAs: ['https://aigrosales.com', 'https://wa.me/13468699154'],
+      sameAs: [
+        'https://aigrosales.com',
+        'https://www.linkedin.com/company/aigrosales/',
+        'https://wa.me/13468699154',
+      ],
       isicV4: '7310',
       knowsAbout: [
         {
@@ -196,6 +200,10 @@ const globalSchemas = {
         latitude: 29.5636,
         longitude: -95.1275,
       },
+      sameAs: [
+        'https://www.linkedin.com/company/aigrosales/',
+        'https://wa.me/13468699154',
+      ],
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
@@ -227,6 +235,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${plusJakarta.variable} ${inter.variable}`}>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-3LW5D9VE8B"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3LW5D9VE8B');
+`,
+          }}
+        />
         <link rel="alternate" type="text/markdown" title="LLM Context" href="/llms.txt" />
         <link rel="alternate" type="application/json" title="Entity Validation" href="/entity-validation.json" />
         <script

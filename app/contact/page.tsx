@@ -29,6 +29,10 @@ const contactSchema = {
     name: 'AIGroSales',
     telephone: '+1-346-869-9154',
     email: 'hello@aigrosales.com',
+    sameAs: [
+      'https://www.linkedin.com/company/aigrosales/',
+      'https://wa.me/13468699154',
+    ],
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'El Dorado Blvd',

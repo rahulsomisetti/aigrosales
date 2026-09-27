@@ -97,11 +97,41 @@ async function sendViaPhpEndpoint(endpoint: string, payload: Record<string, unkn
 }
 
 /**
+ * Push conversion event to Google Analytics (gtag.js) and Google Tag Manager (dataLayer)
+ */
+function trackAnalyticsEvent(eventName: string, params: Record<string, unknown>) {
+  try {
+    if (typeof window !== 'undefined') {
+      const w = window as unknown as {
+        gtag?: (...args: unknown[]) => void;
+        dataLayer?: Record<string, unknown>[];
+      };
+      if (typeof w.gtag === 'function') {
+        w.gtag('event', eventName, params);
+      } else if (Array.isArray(w.dataLayer)) {
+        w.dataLayer.push({ event: eventName, ...params });
+      }
+    }
+  } catch {
+    // Ignore analytics errors so lead submission is never blocked
+  }
+}
+
+/**
  * Submit an AI Visibility Audit Lead
  */
 export async function submitAuditLead(lead: AuditLeadData): Promise<SubmissionResult> {
-  // 1. Always back up to local storage
+  // 1. Always back up to local storage and fire GA4 conversion event
   saveToLocalStorage('aigrosales_leads', lead as unknown as Record<string, unknown>);
+  trackAnalyticsEvent('generate_lead', {
+    event_category: 'audit_request',
+    event_label: lead.selectedTier || 'AI Visibility Audit',
+    industry: lead.industry,
+    city: lead.city,
+    state: lead.state,
+    value: 499,
+    currency: 'USD',
+  });
 
   const payload: Record<string, string> = {
     subject: `🎯 New AI Visibility Audit: ${lead.businessName} (${lead.city}, ${lead.state})${lead.selectedTier ? ` [${lead.selectedTier}]` : ''}`,
@@ -149,8 +179,12 @@ export async function submitAuditLead(lead: AuditLeadData): Promise<SubmissionRe
  * Submit a Direct Contact Inquiry
  */
 export async function submitContactInquiry(inquiry: ContactInquiryData): Promise<SubmissionResult> {
-  // 1. Always back up to local storage
+  // 1. Always back up to local storage and fire GA4 conversion event
   saveToLocalStorage('aigrosales_inquiries', inquiry as unknown as Record<string, unknown>);
+  trackAnalyticsEvent('generate_lead', {
+    event_category: 'contact_inquiry',
+    event_label: 'Direct Contact Form',
+  });
 
   const payload: Record<string, string> = {
     subject: `📩 Direct Inquiry from ${inquiry.name} (${inquiry.businessName || 'New Client'})`,
